@@ -40,7 +40,6 @@ namespace MSBackupPipe.StdPlugins
             mBackupParamSchema = new Dictionary<string, ParameterInfo>(StringComparer.InvariantCultureIgnoreCase);
             mBackupParamSchema.Add("level", new ParameterInfo(false, false));
 
-
             mRestoreParamSchema = new Dictionary<string, ParameterInfo>(StringComparer.InvariantCultureIgnoreCase);
         }
 
