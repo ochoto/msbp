@@ -50,6 +50,7 @@ Global
 		{FD720360-0D0F-410B-990E-36DE4BEB9F23}.Release|x64.Build.0 = Release|Any CPU
 		{9C8081AF-4FB8-4A85-B205-C385BCC36E01}.Debug|Mixed Platforms.ActiveCfg = Debug|x64
 		{9C8081AF-4FB8-4A85-B205-C385BCC36E01}.Debug|Mixed Platforms.Build.0 = Debug|x64
+		{9C8081AF-4FB8-4A85-B205-C385BCC36E01}.Debug|Mixed Platforms.Deploy.0 = Debug|x64
 		{9C8081AF-4FB8-4A85-B205-C385BCC36E01}.Debug|Win32.ActiveCfg = Debug|x86
 		{9C8081AF-4FB8-4A85-B205-C385BCC36E01}.Debug|x64.ActiveCfg = Debug|x64
 		{9C8081AF-4FB8-4A85-B205-C385BCC36E01}.Release|Mixed Platforms.ActiveCfg = Release|x64
