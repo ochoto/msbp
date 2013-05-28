@@ -334,6 +334,9 @@ namespace MSBackupPipe.StdPlugins.Database
                     case "log":
                         restoreType = RestoreType.Log;
                         break;
+                    case "verifyonly":
+                        restoreType = RestoreType.Verify;
+                        break;
                     default:
                         throw new ArgumentException(string.Format("db: Unknown restoreType: {0}", config["restoretype"][0]));
                 }
@@ -631,7 +634,7 @@ namespace MSBackupPipe.StdPlugins.Database
             }
 
 
-            string databaseOrLog = restoreType == RestoreType.Log ? "LOG" : "DATABASE";
+            string databaseOrLog = restoreType == RestoreType.Log ? "LOG @databasename" : (restoreType == RestoreType.Database ? "DATABASE @databasename" : "VERIFYONLY");
 
 
             cmd.CommandType = CommandType.Text;
@@ -641,7 +644,8 @@ namespace MSBackupPipe.StdPlugins.Database
                     return string.Format("VIRTUAL_DEVICE='{0}'", devName);
                 });
 
-            cmd.CommandText = string.Format("RESTORE {0} @databasename {1}FROM {2}{3};", databaseOrLog, filegroupClause, string.Join(",", devSql.ToArray()), withClause);
+            cmd.CommandText = string.Format("RESTORE {0} {1}FROM {2}{3};", databaseOrLog, filegroupClause, string.Join(",", devSql.ToArray()), withClause);
+
         }
 
         public string CommandLineHelp
@@ -675,7 +679,8 @@ msbp.exe has an alias for the db plugin.  A database name in brackets, like [mod
         private enum RestoreType
         {
             Database,
-            Log
+            Log,
+            Verify
         }
     }
 }
