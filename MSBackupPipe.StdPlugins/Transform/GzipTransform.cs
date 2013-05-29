@@ -68,7 +68,7 @@ namespace MSBackupPipe.StdPlugins
 
             Console.WriteLine(string.Format("gzip: level = {0}", level));
 
-            GZipOutputStream gzos = new GZipOutputStream(writeToStream,256*1024);
+            GZipOutputStream gzos = new GZipOutputStream(writeToStream,4*1024*1024);
             gzos.SetLevel(level);
             return gzos;
         }
